@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Figure It Out</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">
+        Medíum
+      </h1>
+      <p class="subtitle has-text-centered">
+        Learning stuff <strong><em>yourself</em></strong>!
+      </p>
+      <hr>
+
+      <h2 class="title"><%= title %>?</h2>
+      <p class="subtitle is-text-size-2">Written by Bob on <%= Time.now.strftime("%m/%d/%Y") %></p>
+      <p>There's really only one solution to this:</p>
+      <pre>
+        <p class="has-font-weight-bold" style="font-size: 2em;">FIGURE IT OUT!</p>
+      </pre>
+      <br>
+      <br>
+      <p>Happy programming!</p>
+      <p>BOB</p>
+      <hr>
+
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img class="is-rounded" src="https://source.unsplash.com/128x128/?face,male">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Bob Figures</strong> <small>@figureitout</small>
+              <br>
+              Bob Figures is a renown figure-it-outer. He surfs hourly. He lives honorably. He knows more than you and would like you to leave him alone.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <hr>
+
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Medíum</strong> by <a href="http://figureitout.page">Bob</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+  </body>
+</html>
