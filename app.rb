@@ -14,5 +14,5 @@ get "/" do
 end
 
 get "/:title" do
-  erb :page, locals: { title: params[:title].titleize.gsub("-", " ") }
+  erb :page, locals: { title: params[:title].titleize.gsub("-", " "), intro: INTRO_SENTENCES.sample }
 end
