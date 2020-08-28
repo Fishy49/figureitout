@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+require "faker"
 require "sinatra"
 require "titleize"
 
@@ -10,9 +12,29 @@ INTRO_SENTENCES = [
 ]
 
 get "/" do
-  erb :page, locals: { title: "How Did I Solve All My Problems?", intro: INTRO_SENTENCES.sample }
+  locals = {
+    intro: INTRO_SENTENCES.sample,
+    author: Faker::Name.name_with_middle,
+    farewell: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
+    expertise: Faker::Company.catch_phrase.pluralize,
+    company_name: Faker::Company.name,
+    languages: rand(3..6).times.map { |i| Faker::ProgrammingLanguage.name }.join(", ").sub(/.*\K, /, " and "),
+    quote: Faker::Marketing.buzzwords.titleize,
+    footer_type: Faker::Company.type
+  }
+  erb :page, locals: locals.merge(title: "How Do I Solve All My Problems?")
 end
 
 get "/:title" do
-  erb :page, locals: { title: params[:title].titleize.gsub("-", " "), intro: INTRO_SENTENCES.sample }
+  locals = {
+    intro: INTRO_SENTENCES.sample,
+    author: Faker::Name.name_with_middle,
+    farewell: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
+    expertise: Faker::Company.catch_phrase.pluralize,
+    company_name: Faker::Company.name,
+    languages: rand(3..6).times.map { |i| Faker::ProgrammingLanguage.name }.join(", ").sub(/.*\K, /, " and "),
+    quote: Faker::Marketing.buzzwords.titleize,
+    footer_type: Faker::Company.type
+  }
+  erb :page, locals: locals.merge(title: params[:title].titleize.gsub("-", " "))
 end

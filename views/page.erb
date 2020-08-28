@@ -18,15 +18,15 @@
       <hr>
 
       <h2 class="title"><%= title %>?</h2>
-      <p class="subtitle is-text-size-2">Written by Bob on <%= Time.now.strftime("%m/%d/%Y") %></p>
+      <p class="subtitle is-text-size-2">Written by <%= author %> on <%= (Date.today - rand(1..3000)).strftime("%m/%d/%Y") %></p>
       <p><%= intro %></p>
       <pre>
         <p class="has-font-weight-bold" style="font-size: 2em;">FIGURE IT OUT!</p>
       </pre>
       <br>
       <br>
-      <p>Happy programming!</p>
-      <p>Bob</p>
+      <p><%= farewell %></p>
+      <p><%= author.split(" ").first %></p>
       <hr>
 
       <article class="media">
@@ -38,9 +38,9 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>Bob Figures</strong> <small>@figureitout</small>
+              <strong><%= author %></strong> <small>@figureitout</small>
               <br>
-              Bob Figures is a renown figure-it-outer. He surfs hourly. He lives honorably. He knows more than you and would like you to leave him alone.
+              <%= author.split(" ").first %> is a renown expert in <%= expertise.downcase %> at <%= company_name %>. Favorite languages include <%= languages %>.<br>They live their life by the following rule: "<%= quote %>"
             </p>
           </div>
         </div>
@@ -51,8 +51,7 @@
       <footer class="footer">
         <div class="content has-text-centered">
           <p>
-            <strong>FigureItOut</strong> by <a href="http://figureitout.page">Bob</a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            <strong>FigureItOut</strong> by <a href="http://figureitout.page"><%= author %></a>. The source code is <%= footer_type %>. The website content
             is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
           </p>
         </div>
