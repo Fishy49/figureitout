@@ -11,8 +11,8 @@ INTRO_SENTENCES = [
   "My time-honored approach to this problem can be found below:"
 ]
 
-get "/" do
-  locals = {
+def generate_locals
+  {
     intro: INTRO_SENTENCES.sample,
     author: Faker::Name.name_with_middle,
     farewell: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
@@ -22,19 +22,12 @@ get "/" do
     quote: Faker::Marketing.buzzwords.titleize,
     footer_type: Faker::Company.type
   }
-  erb :page, locals: locals.merge(title: "How Do I Solve All My Problems?")
+end
+
+get "/" do
+  erb :page, locals: generate_locals.merge(title: "How Do I Solve All My Problems?")
 end
 
 get "/:title" do
-  locals = {
-    intro: INTRO_SENTENCES.sample,
-    author: Faker::Name.name_with_middle,
-    farewell: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
-    expertise: Faker::Company.catch_phrase.pluralize,
-    company_name: Faker::Company.name,
-    languages: rand(3..6).times.map { |i| Faker::ProgrammingLanguage.name }.join(", ").sub(/.*\K, /, " and "),
-    quote: Faker::Marketing.buzzwords.titleize,
-    footer_type: Faker::Company.type
-  }
-  erb :page, locals: locals.merge(title: params[:title].titleize.gsub("-", " "))
+  erb :page, locals: generate_locals.merge(title: params[:title].titleize.gsub("-", " "))
 end
