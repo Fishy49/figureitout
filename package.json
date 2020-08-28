@@ -1,0 +1,11 @@
+{
+  "name": "figureitout",
+  "scripts": {
+    "build":"tailwindcss build styles.css -o public/styles.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.7.5"
+  },
+  "devDependencies": {},
+  "private": true
+}
