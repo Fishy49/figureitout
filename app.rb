@@ -20,7 +20,7 @@ def generate_locals(title = nil, seed = nil)
   title = "#{params[:title].tr("-", " ").titleize}?" if title
   title ||= "How Do I Solve All My Problems?"
 
-  seed ||= title.hash
+  seed ||= Digest::MD5.hexdigest(title).to_i(16) + 5
   srand seed
   Faker::Config.random = Random.new(seed)
 
@@ -28,7 +28,7 @@ def generate_locals(title = nil, seed = nil)
     title: title,
     intro: INTRO_SENTENCES.sample,
     author: Faker::Name.name_with_middle,
-    date: Faker::Date.backward(365.days),
+    date: Faker::Date.backward(days: 365),
     caption: Faker::Hacker.say_something_smart,
     farewell: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
     expertise: Faker::Company.catch_phrase.pluralize,
