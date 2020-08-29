@@ -1,63 +1,85 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Figure It Out</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+
+    <title><%= title %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/styles.css">
   </head>
+
   <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title has-text-centered">
-        Figure It Out
-      </h1>
-      <p class="subtitle has-text-centered">
-        Learning stuff <strong><em>yourself</em></strong>!
-      </p>
-      <hr>
+    <div class="relative bg-gray-900">
+      <img class="w-screen h-screen object-cover opacity-25" src="https://source.unsplash.com/1600x900/?nature" alt="">
 
-      <h2 class="title"><%= title %></h2>
-      <p class="subtitle is-text-size-2">Written by <%= author %> on <%= (Date.today - rand(1..3000)).strftime("%m/%d/%Y") %></p>
-      <p><%= intro %></p>
-      <pre>
-        <p class="has-font-weight-bold" style="font-size: 2em;">FIGURE IT OUT!</p>
-      </pre>
-      <br>
-      <br>
-      <p><%= farewell %></p>
-      <p><%= author.split(" ").first %></p>
-      <hr>
-
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img class="is-rounded" src="https://source.unsplash.com/128x128/?face,male">
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong><%= author %></strong> <small>@figureitout</small>
-              <br>
-              <%= author.split(" ").first %> is a renowned expert in <%= expertise.downcase %> at <%= company_name %>. Favorite languages include <%= languages %>.<br>They live their life by the following rule: "<%= quote %>"
-            </p>
+      <div class="absolute inset-0 p-8 flex flex-col justify-center">
+        <div class="container mx-auto text-center text-gray-400">
+          <p class="text-6xl font-extrabold leading-tight text-gray-100 mb-4"><%= title %></p>
+          <div class="flex items-center justify-center">
+            <p class="mr-3">By</p>
+            <img class="w-5 h-5 rounded-full mr-1" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <p class="text-gray-100"><%= author %></p>
           </div>
         </div>
-      </article>
-
-      <hr>
-
-      <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            <strong>FigureItOut</strong> by <a href="http://figureitout.page"><%= author %></a>. The source code is <%= footer_type %>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-          </p>
-        </div>
-      </footer>
-
+      </div>
     </div>
-  </section>
+
+    <div class="p-8 lg:p-16">
+      <div class="container mx-auto">
+        <header class="mb-8 lg:mb-16">
+          <h1 class="text-4xl mb-4"><%= title %></h1>
+
+          <div class="flex items-center space-x-4">
+            <img class="w-16 h-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div class="leading-6">
+              <p class="font-medium"><%= author %></p>
+              <p class="text-gray-500"><%= date.strftime("%B %e, %Y") %></p>
+            </div>
+          </div>
+        </header>
+
+        <div class="max-w-2xl mx-auto">
+          <article class="text-xl">
+            <header class="mb-8">
+              <p class="text-3xl font-light"><%= intro %></p>
+            </header>
+
+            <figure class="text-center mb-8">
+              <img class="w-full mb-3" src="https://source.unsplash.com/1600x900/?nature" alt="">
+              <figcaption class="text-sm text-gray-400"><%= caption %></figcaption>
+            </figure>
+
+            <p class="mb-4">The solution? It's simple:</p>
+
+            <p class="mb-4"><span class="bg-yellow-100">Figure it out.</span></p>
+
+            <p class="mb-4">That's it.</p>
+
+            <p>Also, <%= farewell.sub(/\A[^I]/, &:downcase) %></p>
+          </article>
+
+          <footer class="mt-16 border-t pt-12">
+            <p class="text-xs text-gray-500 uppercase tracking-widest">Written by</p>
+            <div class="flex items-center mb-3">
+              <img class="w-6 h-6 rounded-full mr-2" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              <p class="text-xl"><%= author %></p>
+            </div>
+
+            <p><%= author.split(" ").first %> is a renowned expert in <%= expertise.sub(/\A\w/, &:downcase) %> at <%= company_name %>. Their favorite programming languages include <%= languages %>. They live their life by the following rule: <%= quote %>.</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-50 p-16">
+      <div class="container mx-auto">
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="text-gray-500"><strong class="font-medium">FigureItOut</strong> by <a class="text-indigo-500 hover:underline" href="http://figureitout.page"><%= author %></a>. The source code is <%= footer_type.downcase %>.<br class="hidden lg:block">
+          The website content is licensed <a class="text-indigo-500 hover:underline" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,11 +1,11 @@
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     content: ["views/*.erb"],
   },
   theme: {
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [require("@tailwindcss/ui")],
 };
