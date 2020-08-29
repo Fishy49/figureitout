@@ -67,7 +67,7 @@
               <p class="text-xl"><%= author %></p>
             </div>
 
-            <p><%= author.split(" ").first %> is a renowned expert in <%= expertise.sub(/\A\w/, &:downcase) %> at <%= company_name %>. Their favorite programming languages include <%= languages %>. They live their life by the following rule: <%= quote %>.</p>
+            <p><%= first_name(author) %> is a renowned expert in <%= expertise.sub(/\A\w/, &:downcase) %> at <%= company_name %>. Their favorite programming languages include <%= languages %>. They live their life by the following rule: <%= quote %>.</p>
           </footer>
         </div>
       </div>

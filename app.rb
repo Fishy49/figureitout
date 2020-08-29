@@ -42,6 +42,14 @@ def generate_locals(title = nil, seed = nil)
   }
 end
 
+helpers do
+  def first_name(name)
+    Faker::Base.fetch_all("name.prefix").reduce(name) do |name, prefix|
+      name.delete_prefix("#{prefix} ")
+    end.split(" ").first
+  end
+end
+
 get "/:title?" do
   seed = Time.now.to_i if params[:random].present?
 
