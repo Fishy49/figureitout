@@ -12,6 +12,10 @@ INTRO_SENTENCES = [
   "My time-honored approach to this problem can be found below."
 ]
 
+HEADER_PHOTOS = JSON.parse(File.read("header_photos.json"))
+ARTICLE_PHOTOS = JSON.parse(File.read("article_photos.json"))
+FACES = JSON.parse(File.read("faces.json"))
+
 def generate_locals(title = nil, seed = nil)
   title = "#{params[:title].tr("-", " ").titleize}?" if title
   title ||= "How Do I Solve All My Problems?"
@@ -31,7 +35,10 @@ def generate_locals(title = nil, seed = nil)
     company_name: Faker::Company.name,
     languages: Array.new(rand(3..6)) { Faker::ProgrammingLanguage.name }.join(", ").sub(/.*\K, /, ", and "),
     quote: Faker::Marketing.buzzwords.titleize,
-    footer_type: Faker::Company.type
+    footer_type: Faker::Company.type,
+    face: FACES.sample,
+    header_photo: HEADER_PHOTOS.sample,
+    article_photo: ARTICLE_PHOTOS.sample
   }
 end
 
