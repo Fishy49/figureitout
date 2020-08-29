@@ -2203,16 +2203,12 @@ video {
   font-size: 1.25rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-}
-
-.text-6xl {
-  font-size: 4rem;
 }
 
 .leading-6 {
@@ -4944,6 +4940,14 @@ video {
   .md\:prose-2xl > :last-child {
     margin-bottom: 0;
   }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -6209,6 +6213,18 @@ video {
 
   .lg\:block {
     display: block;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
   }
 
   .lg\:mb-16 {
@@ -7479,5 +7495,9 @@ video {
 
   .xl\:prose-2xl > :last-child {
     margin-bottom: 0;
+  }
+
+  .xl\:text-6xl {
+    font-size: 4rem;
   }
 }
