@@ -1,3 +1,4 @@
+# For the greater good.
 require "bundler/setup"
 
 Bundler.require
